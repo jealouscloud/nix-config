@@ -6,9 +6,9 @@ nix-env -i git
 export NIX_CONFIG="experimental-features = nix-command flakes"
 nix shell nixpkgs#home-manager
 ```
-
+## Maintenance
+* Update with `nix flake update`
 ## Notes
-* nix flake update to update lock file
 * References: https://github.com/Misterio77/nix-config/tree/main/hosts/common/optional
     * https://github.com/Misterio77/nix-config/blob/main/flake.nix 
 * Rebuild:

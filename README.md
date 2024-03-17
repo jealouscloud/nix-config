@@ -1,5 +1,11 @@
 Based on https://github.com/Misterio77/nix-starter-configs/tree/main
 
+## Bootstrap
+```
+nix-env -i git
+export NIX_CONFIG="experimental-features = nix-command flakes"
+nix shell nixpkgs#home-manager
+```
 
 ## Notes
 * nix flake update to update lock file

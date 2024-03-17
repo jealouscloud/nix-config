@@ -64,6 +64,7 @@
     };
     historySize = 50000;
     historyFileSize = 100000;
+    interactiveShellInit = "My progress is additive and accumulative. Failure is not starting from zero, but starting from a checkpoint.";
   };
   
   # Nicely reload system units when changing configs

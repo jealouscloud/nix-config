@@ -14,12 +14,11 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
+    # ./users
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./audio.nix
     ./locale.nix
-    ./hardware-configuration.nix
   ];
 
   # NOTE: the following are two ways to say the same thing
@@ -89,9 +88,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  # virt tools
-  services.qemuGuest.enable = true;
-  services.spice-vdagentd.enable = true;
 
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;

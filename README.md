@@ -2,9 +2,14 @@ Based on https://github.com/Misterio77/nix-starter-configs/tree/main
 
 ## Bootstrap
 ```
-nix-env -i git
 export NIX_CONFIG="experimental-features = nix-command flakes"
-nix shell nixpkgs#home-manager
+nix shell nixpkgs#home-manager nixpkgs#git nixpkgs#vim
+
+git clone git@github.com:jealouscloud/nix-config.git
+cd nix-config
+sudo nixos-rebuild switch --flake .#your-hostname
+home-manager switch --flake .#your-user@your-hostname
+
 ```
 ## Maintenance
 * Update with `nix flake update`

@@ -65,7 +65,7 @@
     git
     vim
     wget
-    telnet
+    inetutils # for telnet
   ];
   nix.settings = {
     # Enable flakes and new 'nix' command

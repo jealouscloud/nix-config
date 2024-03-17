@@ -32,7 +32,7 @@
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
-        modules = [ ./hosts/nixos-vm/ ];
+        modules = [ ./hosts/nixos-vm ];
       };
     };
 

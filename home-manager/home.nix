@@ -51,7 +51,21 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
+  # Enable vscode
   programs.vscode.enable = true;
+  # Configure bash
+  programs.bash = {
+    enable = true;
+    # Add custom shell aliases
+    shellAliases = {
+      ll = "ls -l";
+      rm = "rm -I";
+      ls = "ls --color=auto";
+    };
+    historySize = 50000;
+    historyFileSize = 100000;
+  };
+  
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

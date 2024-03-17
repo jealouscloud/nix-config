@@ -29,7 +29,7 @@
 
     nixosConfigurations = {
       # FIXME replace with your hostname
-      nixos = nixpkgs.lib.nixosSystem {
+      developer = nixpkgs.lib.nixosSystem {
         # > Our main nixos configuration file <
         modules = [ ./hosts/nixos-vm ];
         specialArgs = {inherit inputs outputs;};
@@ -40,7 +40,7 @@
   #   # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
-      "noah@nixos" = home-manager.lib.homeManagerConfiguration {
+      "noah@developer" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <

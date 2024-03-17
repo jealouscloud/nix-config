@@ -30,9 +30,9 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [ ./hosts/nixos-vm ];
+        specialArgs = {inherit inputs outputs;};
       };
     };
 

@@ -1,4 +1,4 @@
-#!bash
+#!/bin/sh
 
 if [[ $1 == "system" ]] || [[ -z "$1" ]]; then
     sudo nixos-rebuild switch --flake .#$(hostname)

@@ -17,8 +17,13 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
+    ./audio.nix
+    ./locale.nix
     ./hardware-configuration.nix
   ];
+
+  # NOTE: the following are two ways to say the same thing
+  # nixpkgs.config.allowUnfree = true;
 
   nixpkgs = {
     # You can add overlays here
@@ -55,6 +60,13 @@
     })
     config.nix.registry;
 
+  environment.systemPackages = with pkgs; [
+    # Add your system packages here.
+    git
+    vim
+    wget
+    telnet
+  ];
   nix.settings = {
     # Enable flakes and new 'nix' command
     experimental-features = "nix-command flakes";
@@ -64,11 +76,39 @@
 
   # FIXME: Add the rest of your current configuration
 
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   # TODO: Set your hostname
   networking.hostName = "developer";
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.loader.systemd-boot.enable = true;
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  # virt tools
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+
+  # Enable the XFCE Desktop Environment.
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # get mtr
+  programs.mtr.enable = true;
+
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -77,10 +117,15 @@
       openssh.authorizedKeys.keys = [
 	"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDfXVsISzZHp6aRev0XxahsqYJyQYHSXuvyp1+gqlvC0MKkxzaemQdMl+FXqFXK1/gW9S4hu/Olq4+hohZMu+QReC6wiLeXgsT1m6g8hDwYrGR7WM8etcxaQiqGA6KpqpKBNIYpHGhMD96zGqlWyZ7iMCEaytLsEnJMSLKlR5cLzLQ+zx7/z9k2BoNgNjT95W5r2ROzItbXBTuzpabkCUxBrbfj6yVmxViVWIwDTy5maoqTu+CFrRjjq45eUFes2e8QCl7yxJUwmgYo3m58VgM+bTVeOerHfFsvlo3Cdcyejzy0Za5s3xm3gjMd1OEJWGJzKQEZtoTQreso5csTCWWnD/kf1TdpJtEsosb38oB+0WFu6MNcGE5icGetYynUO0QQdn3hldWy5CBEIpGp05wTvwC86917cNGS3MXn3MI6lH3FHRNlpgYWV4m9oCn6uMqH0PypBaR6jfMA/yPRbo2LC4CNtMN3xyYdzG4bfw2cA8xuS9P1qtruO6nPUT0qlFU= noah@compy386"
       ];
-      extraGroups = ["networkmanager", "audio", "docker", "wheel"];
+      extraGroups = ["networkmanager" "audio" "docker" "wheel"];
     };
   };
 
+  # Enable automatic login for the user.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "noah";
+
+#
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {

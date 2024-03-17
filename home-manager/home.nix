@@ -1,11 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -70,11 +69,34 @@
     historySize = 50000;
     historyFileSize = 100000;
     initExtra = ''
-    echo -n "My progress is additive and accumulative. "
-    echo "Failure is not starting from zero, but starting from a checkpoint."
+      echo -n "My progress is additive and accumulative. "
+      echo "Failure is not starting from zero, but starting from a checkpoint."
     '';
   };
-  
+
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General = {
+        disabledTrayIcon = false;
+        showStartupLaunchMessage = false;
+        savePath = "/home/noah/Pictures/screenshots";
+        copyPathAfterSave = true;
+      };
+      Shortcuts = {
+        TYPE_COMMIT_CURRENT_TOOL = "Ctrl+Return";
+        TYPE_COPY = "Ctrl+C";
+        TYPE_REDO = "Ctrl+Shift+Z";
+        TYPE_RESIZE_DOWN = "Shift+Down";
+        TYPE_RESIZE_LEFT = "Shift+Left";
+        TYPE_RESIZE_RIGHT = "Shift+Right";
+        TYPE_RESIZE_UP = "Shift+Up";
+        TYPE_SAVE = "Return";
+        TYPE_TOGGLE_PANEL = "Space";
+        TYPE_UNDO = "Ctrl+Z";
+      };
+    };
+  };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

@@ -8,8 +8,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../common/configuration.nix
-    # ../common/audio.nix
-    # ../common/locale.nix
-    # ./virtualized.nix
+    ../../common/audio.nix
+    ../../common/locale.nix
+    ./virtualized.nix
   ];
 }

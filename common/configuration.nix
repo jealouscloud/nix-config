@@ -47,7 +47,6 @@
 
   environment.systemPackages = with pkgs; [
     # Add your system packages here.
-    git
     vim
     wget
     inetutils # for telnet

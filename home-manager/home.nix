@@ -38,10 +38,9 @@
     };
   };
 
-  # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "noah";
+    homeDirectory = "/home/noah";
   };
 
   # Add stuff for your user as you see fit:
@@ -52,6 +51,7 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
+  programs.vscode.enable = true;
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

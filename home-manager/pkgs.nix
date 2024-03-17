@@ -7,6 +7,6 @@
 
   ]) ++
   (with pkgs-unstable; [
-    alacritty
+    # alacritty
   ]);
 }

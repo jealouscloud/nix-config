@@ -1,12 +1,9 @@
 {
-  inputs,
-  lib,
-  config,
   pkgs,
   pkgs-unstable,
   ...
 }: {
-  home.pkgs = (with pkgs; [
+  home.packages = (with pkgs; [
 
   ]) ++
   (with pkgs-unstable; [

@@ -39,13 +39,28 @@
         modules = [ ./hosts/nixos-vm ];
         specialArgs = {inherit inputs outputs;};
       };
-    };
+      macbook = nixpkgs.lib.nixosSystem {
+        # > Our main nixos configuration file <
+        modules = [ ./hosts/macbook-vm ];
+        specialArgs = {inherit inputs outputs;};
+      };
+ };
 
   #   # Standalone home-manager configuration entrypoint
   #   # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
       "noah@developer" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit outputs;
+          inherit pkgs-unstable;
+        };
+        # > Our main home-manager configuration file <
+        modules = [./home-manager/home.nix];
+      };
+     "noah@macbook" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           inherit inputs;

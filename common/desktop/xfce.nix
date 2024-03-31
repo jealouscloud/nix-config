@@ -12,9 +12,10 @@
     layout = "us";
     xkbVariant = "";
   };
+
   environment.systemPackages = with pkgs; [
-    xfce4-volumed-pulse
-    xfce4-pulseaudio-plugin
+    xfce.xfce4-volumed-pulse
+    xfce.xfce4-pulseaudio-plugin
   ];
 
 }

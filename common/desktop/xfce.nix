@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
 
   # Enable the X11 windowing system.
@@ -11,4 +12,9 @@
     layout = "us";
     xkbVariant = "";
   };
+  environment.systemPackages = with pkgs; [
+    xfce4-volumed-pulse
+    xfce4-pulseaudio-plugin
+  ];
+
 }

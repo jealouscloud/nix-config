@@ -11,6 +11,4 @@
     layout = "us";
     xkbVariant = "";
   };
-  xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml".source = ./files/xfce4-keyboard-shortcuts.xml;
-
 }

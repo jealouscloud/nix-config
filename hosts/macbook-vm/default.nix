@@ -13,4 +13,5 @@
     ../../common/locale.nix
     ./virtualized.nix
   ];
+  networking.hostName = "macbook";
 }

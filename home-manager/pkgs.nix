@@ -6,6 +6,7 @@
   home.packages = (with pkgs; [
     rofi
     playerctl
+    firefox
   ]) ++
   (with pkgs-unstable; [
     # alacritty

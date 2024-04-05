@@ -57,7 +57,17 @@
   };
 
   # Enable vscode
-  programs.vscode.enable = true;
+  programs.vscode = {
+    enable = true;
+    extensions = [
+      pkgs.vscode-extensions.ms-python.black-formatter
+      pkgs.vscode-extensions.bbenoist.nix
+      pkgs.vscode-extensions.redhat.vscode-yaml
+      pkgs.vscode-extensions.ms-python.vscode-pylance
+      pkgs.vscode-extensions.ms-python.python
+      pkgs.vscode-extensions.ms-python.isort
+    ];
+  };
   # Configure bash
   programs.bash = {
     enable = true;

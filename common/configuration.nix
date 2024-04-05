@@ -70,7 +70,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # TODO: Set your hostname
-  networking.hostName = "developer";
+  # networking.hostName = "developer";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking

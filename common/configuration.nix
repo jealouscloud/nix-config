@@ -57,7 +57,12 @@
     # Deduplicate and optimize nix store
     auto-optimise-store = true;
   };
-
+  programs.tmux = {
+    enable = true;
+    plugins = [
+      pkgs.tmuxPlugins.dracula
+    ];
+  };
   # FIXME: Add the rest of your current configuration
 
   # Bootloader.

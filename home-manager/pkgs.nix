@@ -7,6 +7,7 @@
     rofi
     playerctl
     firefox
+    pavucontrol
   ]) ++
   (with pkgs-unstable; [
     # alacritty

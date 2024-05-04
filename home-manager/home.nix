@@ -84,6 +84,11 @@
       echo "Failure is not starting from zero, but starting from a checkpoint."
     '';
   };
+  programs.fzf = {
+     enable = true;
+  };
+  programs.bat.enable = true;
+  programs.ripgrep.enable = true;
 
   services.flameshot = {
     enable = true;

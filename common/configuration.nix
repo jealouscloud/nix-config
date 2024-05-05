@@ -98,7 +98,7 @@
 	"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDfXVsISzZHp6aRev0XxahsqYJyQYHSXuvyp1+gqlvC0MKkxzaemQdMl+FXqFXK1/gW9S4hu/Olq4+hohZMu+QReC6wiLeXgsT1m6g8hDwYrGR7WM8etcxaQiqGA6KpqpKBNIYpHGhMD96zGqlWyZ7iMCEaytLsEnJMSLKlR5cLzLQ+zx7/z9k2BoNgNjT95W5r2ROzItbXBTuzpabkCUxBrbfj6yVmxViVWIwDTy5maoqTu+CFrRjjq45eUFes2e8QCl7yxJUwmgYo3m58VgM+bTVeOerHfFsvlo3Cdcyejzy0Za5s3xm3gjMd1OEJWGJzKQEZtoTQreso5csTCWWnD/kf1TdpJtEsosb38oB+0WFu6MNcGE5icGetYynUO0QQdn3hldWy5CBEIpGp05wTvwC86917cNGS3MXn3MI6lH3FHRNlpgYWV4m9oCn6uMqH0PypBaR6jfMA/yPRbo2LC4CNtMN3xyYdzG4bfw2cA8xuS9P1qtruO6nPUT0qlFU= noah@compy386"
       ];
       extraGroups = ["networkmanager" "audio" "docker" "wheel"];
-      packages = [ inputs.home-manager.packages.${pkgs.system}.default ]
+      packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
     };
   };
 

@@ -8,7 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../common/configuration.nix
-    ../../common/desktop/xfce.nix
+    ../../common/optional/desktop/xfce.nix
     ../../common/audio.nix
     ../../common/locale.nix
     ./virtualized.nix

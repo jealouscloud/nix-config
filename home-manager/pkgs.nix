@@ -8,6 +8,7 @@
     playerctl
     firefox
     pavucontrol
+    devbox
   ]) ++
   (with pkgs-unstable; [
     # alacritty

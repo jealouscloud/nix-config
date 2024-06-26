@@ -15,6 +15,7 @@
     # ./nvim.nix
     ./pkgs.nix
     ./xfce.nix
+    ./rofi.nix
   ];
 
   nixpkgs = {

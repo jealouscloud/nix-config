@@ -20,9 +20,9 @@
   programs = {
     gpg = {
       enable = true;
-    }
+    };
     gpg-agent = {
       enable = true;
-    }
+    };
   }
 }

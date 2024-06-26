@@ -53,11 +53,11 @@
   programs.home-manager.enable = true;
   programs = {
     git = {
-        enable = true;
-        userName = "jealouscloud";
-        userEmail = "jealouscloud@github.com";
-      };
-        # Enable vscode
+      enable = true;
+      userName = "jealouscloud";
+      userEmail = "jealouscloud@github.com";
+    };
+    # Enable vscode
     vscode = {
       enable = true;
       extensions = [
@@ -68,71 +68,71 @@
         pkgs.vscode-extensions.ms-python.python
         pkgs.vscode-extensions.ms-python.isort
       ];
-  };
-  # Bash etc
-  bash = {
-    enable = true;
-    # Add custom shell aliases
-    shellAliases = {
-      ll = "ls -l";
-      rm = "rm -I";
-      ls = "ls --color=auto";
     };
-    historySize = 50000;
-    historyFileSize = 100000;
-    initExtra = ''
-      echo -n "My progress is additive and accumulative. "
-      echo "Failure is not starting from zero, but starting from a checkpoint."
-    '';
-  };
-
-  fzf = {
-    enable = true;
-  };
-
-  bat = {
-    enable = true;
-  };
-
-  ripgrep = {
-    enable = true;
-  };
-
-  gpg = {
-    enable = true;
-  };
-};
-services.gpg-agent = {
-  enable = true;
-};
-
-# Screenshots
-services.flameshot = {
-  enable = true;
-  settings = {
-    General = {
-      disabledTrayIcon = false;
-      showStartupLaunchMessage = false;
-      savePath = "/home/noah/Pictures/screenshots";
-      copyPathAfterSave = true;
+    # Bash etc
+    bash = {
+      enable = true;
+      # Add custom shell aliases
+      shellAliases = {
+        ll = "ls -l";
+        rm = "rm -I";
+        ls = "ls --color=auto";
+      };
+      historySize = 50000;
+      historyFileSize = 100000;
+      initExtra = ''
+        echo -n "My progress is additive and accumulative. "
+        echo "Failure is not starting from zero, but starting from a checkpoint."
+      '';
     };
-    Shortcuts = {
-      TYPE_COMMIT_CURRENT_TOOL = "Ctrl+Return";
-      TYPE_COPY = "Ctrl+C";
-      TYPE_REDO = "Ctrl+Shift+Z";
-      TYPE_RESIZE_DOWN = "Shift+Down";
-      TYPE_RESIZE_LEFT = "Shift+Left";
-      TYPE_RESIZE_RIGHT = "Shift+Right";
-      TYPE_RESIZE_UP = "Shift+Up";
-      TYPE_SAVE = "Return";
-      TYPE_TOGGLE_PANEL = "Space";
-      TYPE_UNDO = "Ctrl+Z";
+
+    fzf = {
+      enable = true;
+    };
+
+    bat = {
+      enable = true;
+    };
+
+    ripgrep = {
+      enable = true;
+    };
+
+    gpg = {
+      enable = true;
     };
   };
-};
-# Nicely reload system units when changing configs
-systemd.user.startServices = "sd-switch";
+  services.gpg-agent = {
+    enable = true;
+  };
 
-# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-home.stateVersion = "23.11";
+  # Screenshots
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General = {
+        disabledTrayIcon = false;
+        showStartupLaunchMessage = false;
+        savePath = "/home/noah/Pictures/screenshots";
+        copyPathAfterSave = true;
+      };
+      Shortcuts = {
+        TYPE_COMMIT_CURRENT_TOOL = "Ctrl+Return";
+        TYPE_COPY = "Ctrl+C";
+        TYPE_REDO = "Ctrl+Shift+Z";
+        TYPE_RESIZE_DOWN = "Shift+Down";
+        TYPE_RESIZE_LEFT = "Shift+Left";
+        TYPE_RESIZE_RIGHT = "Shift+Right";
+        TYPE_RESIZE_UP = "Shift+Up";
+        TYPE_SAVE = "Return";
+        TYPE_TOGGLE_PANEL = "Space";
+        TYPE_UNDO = "Ctrl+Z";
+      };
+    };
+  };
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  home.stateVersion = "23.11";
 }

@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
     ../../common/configuration.nix
     ../../common/optional/desktop/xfce.nix
-    ../../common/optional/pipewire.nix
+    ../../common/optional/pulseaudio.nix
     ../../common/locale.nix
     ./virtualized.nix
   ];

@@ -51,14 +51,15 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "jealouscloud";
-    userEmail = "jealouscloud@github.com";
-  };
-
-  # Enable vscode
-  programs.vscode = {
+  programs = {
+    git =
+      {
+        enable = true;
+        userName = "jealouscloud";
+        userEmail = "jealouscloud@github.com";
+      }
+        # Enable vscode
+        vscode = {
     enable = true;
     extensions = [
       pkgs.vscode-extensions.ms-python.black-formatter
@@ -69,8 +70,8 @@
       pkgs.vscode-extensions.ms-python.isort
     ];
   };
-  # Configure bash
-  programs.bash = {
+  # Bash etc
+  bash = {
     enable = true;
     # Add custom shell aliases
     shellAliases = {
@@ -85,38 +86,45 @@
       echo "Failure is not starting from zero, but starting from a checkpoint."
     '';
   };
-  programs.fzf = {
-     enable = true;
-  };
-  programs.bat.enable = true;
-  programs.ripgrep.enable = true;
-
-  services.flameshot = {
+  fzf = {
     enable = true;
-    settings = {
-      General = {
-        disabledTrayIcon = false;
-        showStartupLaunchMessage = false;
-        savePath = "/home/noah/Pictures/screenshots";
-        copyPathAfterSave = true;
-      };
-      Shortcuts = {
-        TYPE_COMMIT_CURRENT_TOOL = "Ctrl+Return";
-        TYPE_COPY = "Ctrl+C";
-        TYPE_REDO = "Ctrl+Shift+Z";
-        TYPE_RESIZE_DOWN = "Shift+Down";
-        TYPE_RESIZE_LEFT = "Shift+Left";
-        TYPE_RESIZE_RIGHT = "Shift+Right";
-        TYPE_RESIZE_UP = "Shift+Up";
-        TYPE_SAVE = "Return";
-        TYPE_TOGGLE_PANEL = "Space";
-        TYPE_UNDO = "Ctrl+Z";
-      };
+  };
+
+  bat = {
+    enable = true;
+  };
+
+  ripgrep = {
+    enable = true;
+  };
+};
+# Screenshots
+services.flameshot = {
+  enable = true;
+  settings = {
+    General = {
+      disabledTrayIcon = false;
+      showStartupLaunchMessage = false;
+      savePath = "/home/noah/Pictures/screenshots";
+      copyPathAfterSave = true;
+    };
+    Shortcuts = {
+      TYPE_COMMIT_CURRENT_TOOL = "Ctrl+Return";
+      TYPE_COPY = "Ctrl+C";
+      TYPE_REDO = "Ctrl+Shift+Z";
+      TYPE_RESIZE_DOWN = "Shift+Down";
+      TYPE_RESIZE_LEFT = "Shift+Left";
+      TYPE_RESIZE_RIGHT = "Shift+Right";
+      TYPE_RESIZE_UP = "Shift+Up";
+      TYPE_SAVE = "Return";
+      TYPE_TOGGLE_PANEL = "Space";
+      TYPE_UNDO = "Ctrl+Z";
     };
   };
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+};
+# Nicely reload system units when changing configs
+systemd.user.startServices = "sd-switch";
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+home.stateVersion = "23.11";
 }

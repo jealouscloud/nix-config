@@ -52,23 +52,22 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs = {
-    git =
-      {
+    git = {
         enable = true;
         userName = "jealouscloud";
         userEmail = "jealouscloud@github.com";
-      }
+      };
         # Enable vscode
-        vscode = {
-    enable = true;
-    extensions = [
-      pkgs.vscode-extensions.ms-python.black-formatter
-      pkgs.vscode-extensions.bbenoist.nix
-      pkgs.vscode-extensions.redhat.vscode-yaml
-      pkgs.vscode-extensions.ms-python.vscode-pylance
-      pkgs.vscode-extensions.ms-python.python
-      pkgs.vscode-extensions.ms-python.isort
-    ];
+    vscode = {
+      enable = true;
+      extensions = [
+        pkgs.vscode-extensions.ms-python.black-formatter
+        pkgs.vscode-extensions.bbenoist.nix
+        pkgs.vscode-extensions.redhat.vscode-yaml
+        pkgs.vscode-extensions.ms-python.vscode-pylance
+        pkgs.vscode-extensions.ms-python.python
+        pkgs.vscode-extensions.ms-python.isort
+      ];
   };
   # Bash etc
   bash = {
@@ -86,6 +85,7 @@
       echo "Failure is not starting from zero, but starting from a checkpoint."
     '';
   };
+
   fzf = {
     enable = true;
   };
@@ -97,7 +97,15 @@
   ripgrep = {
     enable = true;
   };
+
+  gpg = {
+    enable = true;
+  };
 };
+services.gpg-agent = {
+  enable = true;
+};
+
 # Screenshots
 services.flameshot = {
   enable = true;

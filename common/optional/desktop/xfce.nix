@@ -17,12 +17,4 @@
     xfce.xfce4-volumed-pulse
     xfce.xfce4-pulseaudio-plugin
   ];
-  programs = {
-    gpg = {
-      enable = true;
-    };
-    gpg-agent = {
-      enable = true;
-    };
-  }
 }

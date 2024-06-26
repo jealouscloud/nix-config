@@ -13,5 +13,5 @@ pkgs
         recursive = true;
         source = ./files/rofi;
     };
-    services.gpg-agent.pinentryPackage = pkgs.pinentry-rofi;
+    # services.gpg-agent.pinentryPackage = pkgs.pinentry-rofi;
 }

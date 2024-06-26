@@ -52,6 +52,7 @@
     vim
     wget
     inetutils # for telnet
+    unp
   ];
   nix.settings = {
     # Enable flakes and new 'nix' command

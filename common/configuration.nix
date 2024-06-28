@@ -31,6 +31,10 @@
       allowUnfree = true;
     };
   };
+  qt.enable = true;
+  qt.platformTheme = "gtk2";
+  qt.style = "gtk2";
+
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake

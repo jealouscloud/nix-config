@@ -6,14 +6,4 @@
   # home.packages = (with pkgs; [
   #   # xfce.xfdashboard
   # ]);
-  gtk = {
-    enable = true;
-    # iconTheme = {
-
-    # };
-    # theme = {
-    #   name = "something";
-    #   package = pkgs.zuki-themes;
-    # }
-  };
 }

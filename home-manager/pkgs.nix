@@ -8,6 +8,7 @@
     firefox
     pavucontrol
     devbox
+    copyq
   ]) ++
   (with pkgs-unstable; [
     # alacritty

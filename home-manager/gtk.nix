@@ -13,8 +13,12 @@ config
   gtk = {
     enable = true;
     theme = {
-        name = "dracula";
+        name = "Dracula";
         package = pkgs.dracula-theme;
+    };
+    iconTheme = {
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
     };
   };
 }

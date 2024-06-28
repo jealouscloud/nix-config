@@ -1,16 +1,26 @@
 { pkgs, ... }:
 {
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+    enable = true;
+    excludePackages = with pkgs; [
+      xterm
+    ];
+    displayManager = {
+      lightdm = {
+        enable = true;
+        greeters.slick = {
+          enable = true;
+        };
+      };
+    };
+    desktopManager = {
+      xfce = {
+        enable = true;
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [

@@ -1,7 +1,7 @@
 export NIX_CONFIG="experimental-features = nix-command flakes"
 nix shell nixpkgs#home-manager nixpkgs#git nixpkgs#vim
 
-git clone git@github.com:jealouscloud/nix-config.git
+git clone https://github.com/jealouscloud/nix-config.git
 cd nix-config
 
 setup-user () {

@@ -44,6 +44,11 @@
         modules = [ ./hosts/macbook-vm ];
         specialArgs = {inherit inputs outputs;};
       };
+      slider = nixpkgs.lib.nixosSystem {
+        # > Our main nixos configuration file <
+        modules = [ ./hosts/nixos-slider ];
+        specialArgs = {inherit inputs outputs;};
+      };
  };
 
   #   # Standalone home-manager configuration entrypoint
@@ -70,6 +75,17 @@
         # > Our main home-manager configuration file <
         modules = [./home-manager/home.nix];
       };
+      "noah@slider" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit outputs;
+          inherit pkgs-unstable;
+        };
+        # > Our main home-manager configuration file <
+        modules = [./home-manager/home.nix];
+      };
+
     };
   };
 }

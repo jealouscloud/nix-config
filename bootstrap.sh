@@ -163,6 +163,7 @@ while [[ $# -gt 0 ]]; do
             shift
             install-nixos "$@"
             exit 0
+        ;;
         configure)
             shift
             parse_configure_args "$@"

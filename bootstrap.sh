@@ -53,9 +53,10 @@ parse_configure_args() {
     fi
 
 }
-parse_partition_args() {
+partition() {
     # Parse command line arguments
     drive="$1"
+    encrypted=0
     swap=8GB
     shift
     while [[ $# -gt 0 ]]; do
@@ -66,6 +67,11 @@ parse_partition_args() {
             ;;
             -s|--swap)
                 swap="$2"
+                shift 2
+            ;;
+
+            -e|--encrypted)
+                encrypted=1
                 shift 2
             ;;
             *)
@@ -79,8 +85,8 @@ parse_partition_args() {
     echo "Partitioning drive $drive..."
     set -xe
     parted $drive -- mklabel gpt
-    parted $drive -- mkpart root ext4 512MB -8GB
-    parted $drive -- mkpart swap linux-swap -8GB 100%
+    parted $drive -- mkpart root ext4 512MB -${swap}
+    parted $drive -- mkpart swap linux-swap -${swap} 100%
     parted $drive -- mkpart ESP fat32 1MB 512MB
     parted $drive -- set 3 esp on
     # try to detect sda/nvme
@@ -93,7 +99,16 @@ parse_partition_args() {
         p2=${drive}p2
         p3=${drive}p3
     fi
-    mkfs.ext4 -L nixos $p1
+    if [[ $encrypted -eq 1 ]]; then
+        # format the partition with the luks structure
+        cryptsetup luksFormat $p1
+        # open the encrypted partition and map it to /dev/mapper/cryptroot
+        cryptsetup luksOpen $p1 cryptroot
+        # format as usual
+        mkfs.ext4 -L nixos /dev/mapper/cryptroot
+    else
+        mkfs.ext4 -L nixos $p1
+    fi
     mkswap -L swap $p2
     mkfs.fat -F 32 -n boot $p3
 
@@ -104,6 +119,30 @@ parse_partition_args() {
 
     nixos-generate-config --root /mnt
 
+    entry_config=$(cat <<EOF
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "24.05";
+}
+EOF
+    )
+    # echo "$entry_config" > /mnt/etc/nixos/configuration.nix
+    # nixos-install
+    # mv ../nix-config/ /home/noah/
     set +xe
 
 }
@@ -113,7 +152,7 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         partition)
             shift
-            parse_partition_args "$@"
+            partition "$@"
         ;;
         configure)
             shift

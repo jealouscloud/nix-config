@@ -104,10 +104,11 @@
   };
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "noah";
+  services.displayManager.autoLogin = {
+    user = "noah";
+    enable = true;
+  };
 
-#
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {

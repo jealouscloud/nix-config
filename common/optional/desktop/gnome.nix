@@ -7,8 +7,8 @@
   services.xserver.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+  services.xserver.xkb = {
+      variant = "";
+      layout = "us";
   };
 }

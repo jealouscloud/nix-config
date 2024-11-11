@@ -1,9 +1,12 @@
 { pkgs, ... }:
 {
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
+    variant = "";
     layout = "us";
-    xkbVariant = "";
+  };
+
+  services.xserver = {
     enable = true;
     excludePackages = with pkgs; [
       xterm

@@ -1,9 +1,6 @@
 #!/bin/bash
 export NIX_CONFIG="experimental-features = nix-command flakes"
 nix_shell="nix shell nixpkgs#home-manager nixpkgs#git nixpkgs#vim --command"
-$nix_shell git clone https://github.com/jealouscloud/nix-config.git
-
-cd nix-config
 
 setup-machine() {
     nixos-enter --root /mnt -c "cd /etc/nix-config/; nixos-rebuild switch --flake .#${hostname}"; 
@@ -181,6 +178,11 @@ while [[ $# -gt 0 ]]; do
         ;;
         install)
             shift
+
+            $nix_shell git clone https://github.com/jealouscloud/nix-config.git
+
+            cd nix-config
+
             install-nixos "$@"
             exit 0
         ;;

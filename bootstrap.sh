@@ -112,8 +112,8 @@ parse_partition_args() {
 while [[ $# -gt 0 ]]; do
     case $1 in
         partition)
-            parse_partition_args "$@"
             shift
+            parse_partition_args "$@"
         ;;
         configure)
             shift

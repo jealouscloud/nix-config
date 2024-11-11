@@ -72,7 +72,7 @@ partition() {
 
             -e|--encrypted)
                 encrypted=1
-                shift 2
+                shift
             ;;
             *)
                 echo "Unknown option: $1"

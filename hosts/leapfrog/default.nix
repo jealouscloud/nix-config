@@ -12,6 +12,7 @@
 
     ./hardware-configuration.nix
     ../../common/configuration.nix
+    ../../common/boot-uefi.nix
     ../../common/optional/desktop/xfce.nix
     ../../common/optional/pipewire.nix
     ../../common/locale.nix

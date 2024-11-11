@@ -163,12 +163,17 @@ EOF
     echo "$entry_config" > /mnt/etc/nixos/configuration.nix
     nixos-install
     mv /root/nix-config /mnt/etc/nix-config/
+    cp /etc/nixos/hardware-configuration.nix /mnt/etc/nix-config//hardware-configuration.nix
 
 }
 # parse command, "partition", "configure"
 
 while [[ $# -gt 0 ]]; do
     case $1 in
+        shell)
+            $nix_shell bash;
+            exit 0
+        ;;
         partition)
             shift
             partition "$@"

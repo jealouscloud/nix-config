@@ -15,6 +15,5 @@
     ../../common/optional/desktop/xfce.nix
     ../../common/optional/pipewire.nix
     ../../common/locale.nix
-    ./virtualized.nix
   ];
 }

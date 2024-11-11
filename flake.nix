@@ -91,6 +91,16 @@
         # > Our main home-manager configuration file <
         modules = [./home-manager/home.nix];
       };
+      "noah@leapfrog" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+        inherit inputs;
+        inherit outputs;
+        inherit pkgs-unstable;
+        };
+        # > Our main home-manager configuration file <
+        modules = [./home-manager/home.nix];
+      };
 
     };
   };

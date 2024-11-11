@@ -5,12 +5,17 @@ $nix_shell git clone https://github.com/jealouscloud/nix-config.git
 
 cd nix-config
 
+setup-machine() {
+    nixos-enter --root /mnt -c "cd /etc/nix-config/; nixos-rebuild switch --flake .#${hostname}"; 
+}
 setup-user () {
     set -x
-    $nix_shell nixos-rebuild switch --flake .#${hostname}
+
     if [[ -n "$user" ]]; then
-        home-manager switch --flake .#${user}@${hostname}
+        nixos-enter --root /mnt -c su - $user -c  "cd /etc/nix-config/; home-manager switch --flake .#${user}@${hostname}" &&
+        nixos-enter --root /mnt "passwd $user"
     fi
+
     set +x
 }
 
@@ -86,11 +91,11 @@ partition() {
 
     echo "Partitioning drive $drive..."
     set -xe
-    parted $drive -- mklabel gpt
-    parted $drive -- mkpart root ext4 512MB -${swap}
-    parted $drive -- mkpart swap linux-swap -${swap} 100%
-    parted $drive -- mkpart ESP fat32 1MB 512MB
-    parted $drive -- set 3 esp on
+    parted "$drive" -- mklabel gpt
+    parted "$drive" -- mkpart root ext4 512MB -${swap}
+    parted "$drive" -- mkpart swap linux-swap -${swap} 100%
+    parted "$drive" -- mkpart ESP fat32 1MB 512MB
+    parted "$drive" -- set 3 esp on
     # try to detect sda/nvme
     if echo $drive | grep -E 'd[a-z]$'; then
         p1=${drive}1
@@ -138,6 +143,15 @@ install-nixos() {
     ./hardware-configuration.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    # Add your system packages here.
+    vim
+    wget
+    inetutils # for telnet
+    home-manager
+    unp
+    git
+  ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -148,7 +162,8 @@ EOF
     )
     echo "$entry_config" > /mnt/etc/nixos/configuration.nix
     nixos-install
-    # mv ../nix-config/ /home/noah/
+    mv /root/nix-config /mnt/etc/nix-config/
+
 }
 # parse command, "partition", "configure"
 
@@ -167,7 +182,10 @@ while [[ $# -gt 0 ]]; do
         configure)
             shift
             parse_configure_args "$@"
-            setup-user "$hostname" "$user"
+            if setup-machine; then
+                setup-user "$hostname" "$user"
+                echo "Remember to set your user password"
+            fi
             exit 0
         ;;
         *)

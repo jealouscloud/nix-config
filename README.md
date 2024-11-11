@@ -2,8 +2,9 @@ Based on https://github.com/Misterio77/nix-starter-configs/tree/main
 
 ## Bootstrap
 ```
-curl -o bootstrap.sh https://raw.githubusercontent.com/jealouscloud/nix-config/refs/heads/main/bootstrap.sh
-bash bootstrap.sh # optional args: hostname user
+curl -o bootstrap.sh -L noaha.org/nixos 
+cat bootstrap.sh
+# bash bootstrap.sh # optional args: hostname user
 ```
 
 

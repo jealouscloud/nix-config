@@ -56,13 +56,13 @@
     git = {
       enable = true;
       userName = "jealouscloud";
-      userEmail = "jealouscloud@github.com";
+      userEmail = "github@noaha.org";
     };
     # Enable vscode
     vscode = {
       enable = true;
       extensions = [
-        pkgs.vscode-extensions.ms-python.black-formatter
+        # pkgs.vscode-extensions.ms-python.black-formatter
         pkgs.vscode-extensions.bbenoist.nix
         pkgs.vscode-extensions.redhat.vscode-yaml
         pkgs.vscode-extensions.ms-python.vscode-pylance

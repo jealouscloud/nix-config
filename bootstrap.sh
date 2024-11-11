@@ -3,14 +3,14 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 nix_shell="nix shell nixpkgs#home-manager nixpkgs#git nixpkgs#vim --command"
 
 setup-machine() {
-    nixos-enter --root /mnt -c "cd /etc/nix-config/; nixos-rebuild switch --flake .#${hostname}"; 
+    nixos-rebuild switch --flake .#${hostname};
 }
 setup-user () {
     set -x
 
     if [[ -n "$user" ]]; then
-        nixos-enter --root /mnt -c su - $user -c  "cd /etc/nix-config/; home-manager switch --flake .#${user}@${hostname}" &&
-        nixos-enter --root /mnt "passwd $user"
+        su - $user -c  "cd /etc/nix-config/; home-manager switch --flake .#${user}@${hostname}" &&
+        passwd $user
     fi
 
     set +x
@@ -188,7 +188,12 @@ while [[ $# -gt 0 ]]; do
         ;;
         configure)
             shift
+            if ! [[ -e "/etc/nix-config" ]]; then
+                echo "Error: /etc/nix-config not found. If you just installed, reboot first."
+                exit 1
+            fi
             parse_configure_args "$@"
+            cd /etc/nix-config/
             if setup-machine; then
                 setup-user "$hostname" "$user"
                 echo "Remember to set your user password"

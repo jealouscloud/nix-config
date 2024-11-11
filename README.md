@@ -4,7 +4,10 @@ Based on https://github.com/Misterio77/nix-starter-configs/tree/main
 ```
 curl -o bootstrap.sh -L noaha.org/nixos 
 cat bootstrap.sh
-# bash bootstrap.sh # optional args: hostname user
+# bash bootstrap.sh partition /dev/sda --encrypted
+# bash bootstrap.sh install
+# reboot
+# cd /etc/nix-config; bash bootstrap.sh configure --hostname your-hostname --user your-username
 ```
 
 

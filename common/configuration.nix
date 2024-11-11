@@ -57,6 +57,8 @@
     wget
     inetutils # for telnet
     unp
+    git
+    home-manager
   ];
   nix.settings = {
     # Enable flakes and new 'nix' command

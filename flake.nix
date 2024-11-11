@@ -49,6 +49,12 @@
         modules = [ ./hosts/nixos-slider ];
         specialArgs = {inherit inputs outputs;};
       };
+      leapfrog = nixpkgs.lib.nixosSystem {
+        # > Our main nixos configuration file <
+        modules = [ ./hosts/leapfrog ];
+        specialArgs = { inherit inputs outputs; };
+      };
+
  };
 
   #   # Standalone home-manager configuration entrypoint

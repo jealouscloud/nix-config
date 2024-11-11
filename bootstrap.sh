@@ -15,7 +15,7 @@ setup-user () {
 }
 
 print_usage() {
-    echo "Usage: $0 [partition /dev/drive | configure --hostname myhsotname --user myuser]..."
+    echo "Usage: $0 [partition /dev/drive | install | configure --hostname myhsotname --user myuser]..."
     echo "Options:"
     echo "  -h, --help             Display this help message"
     echo "  -n, --hostname NAME    Set the hostname"
@@ -62,7 +62,9 @@ partition() {
     while [[ $# -gt 0 ]]; do
         case $1 in
             -h|--help)
-                echo "options: --swap 8GB"
+                echo "options: "
+                echo "--swap 8GB"
+                echo "--encrypted"
                 exit 0
             ;;
             -s|--swap)
@@ -116,6 +118,10 @@ partition() {
     mkdir -p /mnt/boot
     mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
     swapon $p2
+    set +xe
+}
+
+install-nixos() {
 
     nixos-generate-config --root /mnt
 
@@ -140,11 +146,9 @@ partition() {
 }
 EOF
     )
-    # echo "$entry_config" > /mnt/etc/nixos/configuration.nix
-    # nixos-install
+    echo "$entry_config" > /mnt/etc/nixos/configuration.nix
+    nixos-install
     # mv ../nix-config/ /home/noah/
-    set +xe
-
 }
 # parse command, "partition", "configure"
 
@@ -153,7 +157,12 @@ while [[ $# -gt 0 ]]; do
         partition)
             shift
             partition "$@"
+            exit 0
         ;;
+        install)
+            shift
+            install-nixos "$@"
+            exit 0
         configure)
             shift
             parse_configure_args "$@"

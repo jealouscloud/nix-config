@@ -9,6 +9,7 @@
     nil # nix language server
     autokey
     pcmanfm
+    logseq
   ]) ++ (with pkgs-unstable;
     [
       # alacritty

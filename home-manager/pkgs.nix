@@ -1,16 +1,16 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{ pkgs, pkgs-unstable, ... }: {
   home.packages = (with pkgs; [
     playerctl
     firefox
     pavucontrol
     devbox
     copyq
-  ]) ++
-  (with pkgs-unstable; [
-    # alacritty
-  ]);
+    nixfmt-classic # nix code formatter
+    nil # nix language server
+    autokey
+    pcmanfm
+  ]) ++ (with pkgs-unstable;
+    [
+      # alacritty
+    ]);
 }

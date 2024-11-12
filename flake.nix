@@ -17,20 +17,13 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , home-manager
-    , ...
-    } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-    in
-    {
+    in {
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
 
@@ -54,6 +47,11 @@
         leapfrog = nixpkgs.lib.nixosSystem {
           # > Our main nixos configuration file <
           modules = [ ./hosts/leapfrog ];
+          specialArgs = { inherit inputs outputs; };
+        };
+        work = nixpkgs.lib.nixosSystem {
+          # > Our main nixos configuration file <
+          modules = [ ./hosts/work ];
           specialArgs = { inherit inputs outputs; };
         };
 
@@ -94,6 +92,16 @@
           modules = [ ./home-manager/home.nix ];
         };
         "noah@leapfrog" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit outputs;
+            inherit pkgs-unstable;
+          };
+          # > Our main home-manager configuration file <
+          modules = [ ./home-manager/home.nix ];
+        };
+        "noah@work" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs;

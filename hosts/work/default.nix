@@ -17,4 +17,5 @@
     ../../common/optional/pipewire.nix
     ../../common/locale.nix
   ];
+  networking.hostName = "work";
 }

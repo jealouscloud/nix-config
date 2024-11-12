@@ -5,7 +5,10 @@
 , config
 , pkgs
 , ...
-}: {
+}:
+let hostname = builtins.getEnv "HOSTNAME";
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -17,6 +20,8 @@
     ./gtk.nix
     ./xfce.nix
     ./rofi.nix
+  ] ++ lib.optionals (hostname == "work" ) [
+    ./professional.nix
   ];
 
   nixpkgs = {

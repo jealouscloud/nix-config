@@ -6,9 +6,15 @@
 , pkgs
 , ...
 }:
-let hostname = builtins.getEnv "HOSTNAME";
-in
 {
+  options.myconfig = {
+    isWork = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Whether this is my work machine";
+    };
+  };
+
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -20,7 +26,7 @@ in
     ./gtk.nix
     ./xfce.nix
     ./rofi.nix
-  ] ++ lib.optionals (hostname == "work" ) [
+  ] ++ lib.optionals config.myconfig.isWork [
     ./professional.nix
   ];
 

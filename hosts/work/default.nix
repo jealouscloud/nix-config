@@ -15,6 +15,7 @@
     ../../common/boot-uefi.nix
     ../../common/optional/desktop/xfce.nix
     ../../common/optional/pipewire.nix
+    ../../common/optional/yubikey.nix
     ../../common/locale.nix
   ];
   networking.hostName = "work";

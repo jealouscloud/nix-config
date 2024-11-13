@@ -1,12 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, lib
-, config
-, pkgs
-, ...
-}:
-{
+{ inputs, lib, config, pkgs, pkgs-unstable, ... }: {
 
   # You can import other home-manager modules here
   imports = [
@@ -18,6 +12,12 @@
     ./common.nix
   ];
 
+  home.packages = (with pkgs; [ openvpn  ]) ++ (with pkgs-unstable;
+    [
+        slack
+        telegram-desktop
+    ]);
+
   home = {
     username = "noah";
     homeDirectory = "/home/noah";
@@ -27,12 +27,11 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
-  # Enable home-manager and git
   programs = {
     git = {
       enable = true;
-      userName = "jealouscloud";
-      userEmail = "github@noaha.org";
+      userName = "noaha";
+      userEmail = "noaha@inmotionhosting.com";
     };
   };
 }

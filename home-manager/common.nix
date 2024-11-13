@@ -87,6 +87,36 @@
       '';
     };
 
+
+    vim = {
+      enable = true;
+      plugins = with pkgs.vimPlugins; [ dracula-vim ];
+      settings = { ignorecase = true; };
+      extraConfig = ''
+        set mouse=a
+        set showtabline=2	" Show tab bar
+
+        set shiftwidth=4
+        set tabstop=4
+        set softtabstop=0
+        set expandtab
+
+        "set number	" Show line numbers
+        set showmatch	" Highlight matching brace
+        set visualbell	" Use visual bell (no beeping)
+        
+        set hlsearch	" Highlight all search results
+        set smartcase	" Enable smart-case search
+        set ignorecase	" Always case-insensitive
+        set incsearch	" Searches for strings incrementally
+        
+        set autoindent	" Auto-indent new lines
+        set cindent	" Use 'C' style program indenting
+        set smartindent	" Enable smart-indent
+        set smarttab	" Enable smart-tabs
+      '';
+    };
+
     fzf = {
       enable = true;
     };
@@ -101,6 +131,12 @@
 
     gpg = {
       enable = true;
+    };
+
+    # bitwarden cli
+    rbw = {
+      enable = true;
+      settings.pinentry = pkgs.pinentry-gtk2;
     };
   };
   services.gpg-agent = {

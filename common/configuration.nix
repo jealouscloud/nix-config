@@ -1,17 +1,9 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   # NOTE: the following are two ways to say the same thing
   # nixpkgs.config.allowUnfree = true;
-  imports = [
-    inputs.home-manager.nixosModules.home-manager
-  ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -35,21 +27,18 @@
   qt.platformTheme = "gtk2";
   qt.style = "gtk2";
 
-
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+    ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = ["/etc/nix/path"];
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
+  nix.nixPath = [ "/etc/nix/path" ];
+  environment.etc = lib.mapAttrs' (name: value: {
+    name = "nix/path/${name}";
+    value.source = value.flake;
+  }) config.nix.registry;
 
   environment.systemPackages = with pkgs; [
     # Add your system packages here.
@@ -58,6 +47,7 @@
     inetutils # for telnet
     unp
     git
+    appimage-run
     home-manager
   ];
   nix.settings = {
@@ -68,9 +58,7 @@
   };
   programs.tmux = {
     enable = true;
-    plugins = [
-      pkgs.tmuxPlugins.dracula
-    ];
+    plugins = [ pkgs.tmuxPlugins.dracula ];
   };
   # FIXME: Add the rest of your current configuration
 
@@ -92,15 +80,14 @@
   # get mtr
   programs.mtr.enable = true;
 
-
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     noah = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
-	"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDfXVsISzZHp6aRev0XxahsqYJyQYHSXuvyp1+gqlvC0MKkxzaemQdMl+FXqFXK1/gW9S4hu/Olq4+hohZMu+QReC6wiLeXgsT1m6g8hDwYrGR7WM8etcxaQiqGA6KpqpKBNIYpHGhMD96zGqlWyZ7iMCEaytLsEnJMSLKlR5cLzLQ+zx7/z9k2BoNgNjT95W5r2ROzItbXBTuzpabkCUxBrbfj6yVmxViVWIwDTy5maoqTu+CFrRjjq45eUFes2e8QCl7yxJUwmgYo3m58VgM+bTVeOerHfFsvlo3Cdcyejzy0Za5s3xm3gjMd1OEJWGJzKQEZtoTQreso5csTCWWnD/kf1TdpJtEsosb38oB+0WFu6MNcGE5icGetYynUO0QQdn3hldWy5CBEIpGp05wTvwC86917cNGS3MXn3MI6lH3FHRNlpgYWV4m9oCn6uMqH0PypBaR6jfMA/yPRbo2LC4CNtMN3xyYdzG4bfw2cA8xuS9P1qtruO6nPUT0qlFU= noah@compy386"
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDfXVsISzZHp6aRev0XxahsqYJyQYHSXuvyp1+gqlvC0MKkxzaemQdMl+FXqFXK1/gW9S4hu/Olq4+hohZMu+QReC6wiLeXgsT1m6g8hDwYrGR7WM8etcxaQiqGA6KpqpKBNIYpHGhMD96zGqlWyZ7iMCEaytLsEnJMSLKlR5cLzLQ+zx7/z9k2BoNgNjT95W5r2ROzItbXBTuzpabkCUxBrbfj6yVmxViVWIwDTy5maoqTu+CFrRjjq45eUFes2e8QCl7yxJUwmgYo3m58VgM+bTVeOerHfFsvlo3Cdcyejzy0Za5s3xm3gjMd1OEJWGJzKQEZtoTQreso5csTCWWnD/kf1TdpJtEsosb38oB+0WFu6MNcGE5icGetYynUO0QQdn3hldWy5CBEIpGp05wTvwC86917cNGS3MXn3MI6lH3FHRNlpgYWV4m9oCn6uMqH0PypBaR6jfMA/yPRbo2LC4CNtMN3xyYdzG4bfw2cA8xuS9P1qtruO6nPUT0qlFU= noah@compy386"
       ];
-      extraGroups = ["networkmanager" "audio" "docker" "wheel"];
+      extraGroups = [ "networkmanager" "audio" "docker" "wheel" ];
       packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
     };
   };
@@ -123,7 +110,16 @@
     };
   };
 
+  boot.binfmt.registrations.appimage = {
+    wrapInterpreterInShell = false;
+    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+    recognitionType = "magic";
+    offset = 0;
+    mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
+    magicOrExtension = "\\x7fELF....AI\\x02";
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
-  
+
 }

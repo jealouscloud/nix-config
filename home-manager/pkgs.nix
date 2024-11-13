@@ -9,9 +9,10 @@
     nil # nix language server
     autokey
     pcmanfm
-    logseq
+    arandr
   ]) ++ (with pkgs-unstable;
     [
+    logseq
       # alacritty
     ]);
 }

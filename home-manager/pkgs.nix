@@ -10,6 +10,7 @@
     autokey
     pcmanfm
     arandr
+    spotify
   ]) ++ (with pkgs-unstable;
     [
     logseq

@@ -12,11 +12,8 @@
     ./common.nix
   ];
 
-  home.packages = (with pkgs; [ openvpn  ]) ++ (with pkgs-unstable;
-    [
-        slack
-        telegram-desktop
-    ]);
+  home.packages = (with pkgs; [ openvpn telegram-desktop ])
+    ++ (with pkgs-unstable; [ slack ]);
 
   home = {
     username = "noah";

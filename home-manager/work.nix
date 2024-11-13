@@ -30,5 +30,13 @@
       userName = "noaha";
       userEmail = "noaha@inmotionhosting.com";
     };
+    rbw = {
+      enable = true;
+      settings = {
+        email = "noaha@inmotionhosting.com";
+        base_url = "https://vault0.imhadmin.net/";
+        lock_timeout = 36000;
+      };
+    };
   };
 }

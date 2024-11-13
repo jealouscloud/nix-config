@@ -48,6 +48,7 @@
     unp
     git
     appimage-run
+    nix-index-unwrapped
     home-manager
   ];
   nix.settings = {
@@ -109,6 +110,8 @@
       PasswordAuthentication = false;
     };
   };
+  
+  services.locate.enable = true;
 
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
@@ -118,6 +121,10 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
+
+
+  # add ~/.local/bin to path
+  environment.localBinInPath = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";

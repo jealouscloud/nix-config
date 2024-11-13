@@ -11,6 +11,9 @@
     pcmanfm
     arandr
     spotify
+    pinentry-gtk2
+    rofi-rbw
+    xdotool
   ]) ++ (with pkgs-unstable;
     [
     logseq

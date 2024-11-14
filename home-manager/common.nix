@@ -138,7 +138,6 @@
       enable = true;
       settings = {
         pinentry = pkgs.pinentry-gtk2;
-        email = "mail@noaha.org";
       };
     };
   };

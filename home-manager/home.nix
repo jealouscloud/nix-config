@@ -34,5 +34,11 @@
       userName = "jealouscloud";
       userEmail = "github@noaha.org";
     };
+
+    rbw = {
+      settings = {
+        email = "mail@noaha.org";
+      };
+    };
   };
 }

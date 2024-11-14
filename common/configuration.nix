@@ -61,6 +61,8 @@
     enable = true;
     plugins = [ pkgs.tmuxPlugins.dracula ];
   };
+
+  programs.nix-ld = { enable = true; };
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
@@ -114,7 +116,7 @@
       PasswordAuthentication = false;
     };
   };
-  
+
   services.locate.enable = true;
 
   boot.binfmt.registrations.appimage = {
@@ -125,7 +127,6 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
-
 
   # add ~/.local/bin to path
   environment.localBinInPath = true;

@@ -81,6 +81,10 @@
   # get mtr
   programs.mtr.enable = true;
 
+  # enable network fs
+  services.gvfs.enable = true;
+  services.samba.enable = true;
+
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     noah = {

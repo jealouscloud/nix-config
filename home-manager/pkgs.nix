@@ -14,6 +14,10 @@
     pinentry-gtk2
     rofi-rbw
     xdotool
+
+    ptyxis
+    terminator
+    cifs-utils # for cifs mounts/samba
   ]) ++ (with pkgs-unstable;
     [
     logseq

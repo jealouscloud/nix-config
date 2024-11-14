@@ -11,6 +11,8 @@
     pcmanfm
     arandr
     spotify
+
+    # bitwarden via rofi
     pinentry-gtk2
     rofi-rbw
     xdotool
@@ -18,6 +20,11 @@
     ptyxis
     terminator
     cifs-utils # for cifs mounts/samba
+
+    rye # python dev tool
+    bc # cli calculator
+    python
+
   ]) ++ (with pkgs-unstable;
     [
     logseq

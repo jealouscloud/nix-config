@@ -3,6 +3,7 @@
     playerctl
     firefox
     pavucontrol
+    mission-center # task manager
     devbox
     copyq
     nixfmt-classic # nix code formatter
@@ -24,6 +25,11 @@
     rye # python dev tool
     bc # cli calculator
     python3
+
+    lazygit # fun cli for git, remove if you don't use
+
+    # fonts
+    monaspace
 
   ]) ++ (with pkgs-unstable;
     [

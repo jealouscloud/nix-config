@@ -23,7 +23,7 @@
 
     rye # python dev tool
     bc # cli calculator
-    python
+    python3
 
   ]) ++ (with pkgs-unstable;
     [

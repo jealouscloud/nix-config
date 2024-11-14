@@ -136,7 +136,10 @@
     # bitwarden cli
     rbw = {
       enable = true;
-      settings.pinentry = pkgs.pinentry-gtk2;
+      settings = {
+        pinentry = pkgs.pinentry-gtk2;
+        email = "mail@noaha.org";
+      };
     };
   };
   services.gpg-agent = {

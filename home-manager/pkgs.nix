@@ -20,6 +20,7 @@
 
     ptyxis
     terminator
+    wezterm
     cifs-utils # for cifs mounts/samba
 
     rye # python dev tool

@@ -29,11 +29,9 @@
       enable = true;
       userName = "noaha";
       userEmail = "noaha@inmotionhosting.com";
-      extraConfig = {
-        # Sign all commits using ssh key
-        commit.gpgsign = true;
-        gpg.format = "ssh";
-        user.signingkey = "~/.ssh/id_ed25519.pub";
+      signing = {
+        key = "0x7A2465CEBF62B908";
+        signByDefault = true;
       };
     };
     rbw = {

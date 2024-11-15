@@ -22,6 +22,7 @@
     terminator
     wezterm
     cifs-utils # for cifs mounts/samba
+    xdg-desktop-portal-gtk # flatpak
 
     rye # python dev tool
     bc # cli calculator

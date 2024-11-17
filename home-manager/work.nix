@@ -12,7 +12,7 @@
     ./common.nix
   ];
 
-  home.packages = (with pkgs; [ openvpn telegram-desktop ])
+  home.packages = (with pkgs; [ openvpn  ])
     ++ (with pkgs-unstable; [ slack ]);
 
   home = {

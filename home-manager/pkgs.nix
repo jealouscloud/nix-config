@@ -33,6 +33,9 @@
     # fonts
     monaspace
 
+    # messenger apps
+    telegram-desktop
+
   ]) ++ (with pkgs-unstable;
     [
     logseq

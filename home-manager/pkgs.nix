@@ -2,6 +2,7 @@
   home.packages = (with pkgs; [
     playerctl
     firefox
+    thunderbird
     pavucontrol
     mission-center # task manager
     devbox

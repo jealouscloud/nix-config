@@ -28,6 +28,7 @@
     rye # python dev tool
     bc # cli calculator
     python3
+    jq # parse json
 
     lazygit # fun cli for git, remove if you don't use
 
@@ -36,6 +37,9 @@
 
     # messenger apps
     telegram-desktop
+
+    # nonfree
+    notion-app-enhanced
 
   ]) ++ (with pkgs-unstable;
     [

@@ -38,9 +38,6 @@
     # messenger apps
     telegram-desktop
 
-    # nonfree
-    notion-app-enhanced
-
   ]) ++ (with pkgs-unstable;
     [
     logseq

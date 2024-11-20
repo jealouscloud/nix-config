@@ -10,7 +10,10 @@
     nixfmt-classic # nix code formatter
     nil # nix language server
     autokey
+    
     pcmanfm
+    lxmenu-data # populate applications
+
     arandr
     spotify
 

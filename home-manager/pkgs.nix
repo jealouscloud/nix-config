@@ -41,6 +41,8 @@
     # messenger apps
     telegram-desktop
 
+    textpieces # simple text editor space
+
   ]) ++ (with pkgs-unstable;
     [
     logseq

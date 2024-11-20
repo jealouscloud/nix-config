@@ -43,6 +43,10 @@
 
     textpieces # simple text editor space
 
+    # system troubleshooting
+    d-spy
+    bustle
+
   ]) ++ (with pkgs-unstable;
     [
     logseq

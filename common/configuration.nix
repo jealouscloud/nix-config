@@ -27,6 +27,7 @@
   qt.platformTheme = "gtk2";
   qt.style = "gtk2";
 
+  console.enable = true; # We definitely want to switch TTYs
   # Enable all sysrq functions (useful to recover from some issues):
   boot.kernel.sysctl = { 
     "kernel.sysrq" = 1; # NixOS default: 16 (only the sync command)

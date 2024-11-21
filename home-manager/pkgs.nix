@@ -29,6 +29,8 @@
     xdg-desktop-portal-gtk # flatpak
 
     rye # python dev tool
+    uv # python pip replacement
+
     bc # cli calculator
     python3
     jq # parse json

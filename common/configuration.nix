@@ -69,7 +69,33 @@
     plugins = [ pkgs.tmuxPlugins.dracula ];
   };
 
-  # programs.nix-ld = { enable = true; };
+  # ref: https://github.com/Mic92/dotfiles/blob/a392bb0762393b20d0ae7df25b063fcf0b512203/machines/modules/fhs-compat.nix
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries =
+    with pkgs;
+    [
+      acl
+      attr
+      bzip2
+      dbus
+      expat
+      fontconfig
+      freetype
+      fuse3
+      icu
+      libnotify
+      libsodium
+      libssh
+      libunwind
+      libusb1
+      libuuid
+      nspr
+      nss
+      stdenv.cc.cc
+      util-linux
+      zlib
+      zstd
+    ];
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname

@@ -17,6 +17,7 @@
     ../../common/optional/pipewire.nix
     ../../common/optional/yubikey.nix
     ../../common/optional/flatpak.nix
+    ../../common/optional/docker.nix
     ../../common/locale.nix
   ];
   networking.hostName = "work";

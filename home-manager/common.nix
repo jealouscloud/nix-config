@@ -140,6 +140,10 @@
         pinentry = pkgs.pinentry-gtk2;
       };
     };
+
+    chromium = {
+      enable = true;
+    };
   };
   services.gpg-agent = {
     enable = true;

@@ -17,6 +17,8 @@
     ../../common/optional/pipewire.nix
     ../../common/optional/flatpak.nix
     ../../common/optional/fwupd.nix
+    ../../common/optional/qemu.nix
+    ../../common/optional/bluetooth.nix
     ../../common/locale.nix
   ];
 }

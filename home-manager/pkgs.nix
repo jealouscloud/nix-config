@@ -52,9 +52,14 @@
     d-spy
     bustle
 
+
   ]) ++ (with pkgs-unstable;
     [
     logseq
+
+    # ai tools
+    aichat
+    fabric-ai
       # alacritty
     # zed-editor
     ]);

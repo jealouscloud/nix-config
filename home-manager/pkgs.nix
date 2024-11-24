@@ -56,6 +56,6 @@
     [
     logseq
       # alacritty
-    zed-editor
+    # zed-editor
     ]);
 }

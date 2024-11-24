@@ -5,12 +5,15 @@
     thunderbird
     pavucontrol
     mission-center # task manager
-    devbox
     copyq
     nixfmt-classic # nix code formatter
+    nixpkgs-fmt
     nil # nix language server
     autokey
-    
+
+    devbox
+    direnv
+
     pcmanfm
     lxmenu-data # populate applications
 
@@ -53,5 +56,6 @@
     [
     logseq
       # alacritty
+    zed-editor
     ]);
 }

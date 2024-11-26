@@ -57,7 +57,9 @@
     appimage-run
     nix-index-unwrapped
     home-manager
+    touchegg
   ];
+  services.touchegg.enable = true;
   nix.settings = {
     # Enable flakes and new 'nix' command
     experimental-features = "nix-command flakes";
@@ -154,6 +156,8 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
+
+
 
   # add ~/.local/bin to path
   environment.localBinInPath = true;

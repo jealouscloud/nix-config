@@ -37,6 +37,7 @@
     bc # cli calculator
     python3
     jq # parse json
+    argc # for llm-functions
 
     lazygit # fun cli for git, remove if you don't use
 

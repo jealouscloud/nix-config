@@ -19,6 +19,7 @@
     ./gtk.nix
     ./xfce.nix
     ./rofi.nix
+    ./wezterm.nix
   ];
 
   nixpkgs = {

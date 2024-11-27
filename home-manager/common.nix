@@ -93,7 +93,7 @@
       plugins = with pkgs.vimPlugins; [ dracula-vim ];
       settings = { ignorecase = true; };
       extraConfig = ''
-        set mouse=a
+        set mouse=r
         set showtabline=2	" Show tab bar
 
         set shiftwidth=4

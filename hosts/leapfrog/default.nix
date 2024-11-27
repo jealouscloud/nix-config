@@ -20,7 +20,6 @@
     ../../common/optional/qemu.nix
     ../../common/optional/bluetooth.nix
     ../../common/optional/docker.nix
-    ../../common/optional/nix-alien.nix
     ../../common/locale.nix
   ];
 }

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }: {
+{ pkgs, pkgs-unstable, inputs, ... }: {
   home.packages = (with pkgs; [
     playerctl
     firefox
@@ -60,7 +60,12 @@
     # ai tools
     aichat
     fabric-ai
+    libedgetpu
+    edgetpu-compiler
       # alacritty
     # zed-editor
+    ]) ++ (with inputs.nix-alien.packages.x86_64-linux;
+    [
+      nix-alien
     ]);
 }

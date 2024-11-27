@@ -84,6 +84,7 @@
             inherit inputs;
             inherit outputs;
             inherit pkgs-unstable;
+            inherit system;
           };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/home.nix ];
@@ -94,6 +95,7 @@
             inherit inputs;
             inherit outputs;
             inherit pkgs-unstable;
+            inherit system;
           };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/home.nix ];
@@ -104,6 +106,7 @@
             inherit inputs;
             inherit outputs;
             inherit pkgs-unstable;
+            inherit system;
           };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/home.nix ];
@@ -114,6 +117,7 @@
             inherit inputs;
             inherit outputs;
             inherit pkgs-unstable;
+            inherit system;
           };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/home.nix ];
@@ -124,6 +128,7 @@
             inherit inputs;
             inherit outputs;
             inherit pkgs-unstable;
+            inherit system;
           };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/work.nix ];

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, inputs, ... }: {
+{ pkgs, pkgs-unstable, inputs, system, ... }: {
   home.packages = (with pkgs; [
     playerctl
     firefox
@@ -64,7 +64,7 @@
     edgetpu-compiler
       # alacritty
     # zed-editor
-    ]) ++ (with inputs.nix-alien.packages.x86_64-linux;
+    ]) ++ (with inputs.nix-alien.packages.${system};
     [
       nix-alien
     ]);

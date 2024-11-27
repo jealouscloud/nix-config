@@ -20,7 +20,7 @@
 
     config.use_fancy_tab_bar = false
     -- Selection
-    config.selection_word_boundary =  " \t\n{}[]()\"'`,.?%&#/|"
+    config.selection_word_boundary =  " @\t\n{}[]()\"'`,.?%&#/|"
 
     config.mouse_bindings = {
 

@@ -126,6 +126,10 @@
       enable = true;
     };
 
+    lsd = {
+      enable = true;
+    };
+
     ripgrep = {
       enable = true;
     };

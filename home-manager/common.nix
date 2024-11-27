@@ -94,6 +94,8 @@
       plugins = with pkgs.vimPlugins; [ dracula-vim ];
       settings = { ignorecase = true; };
       extraConfig = ''
+        colorscheme dracula
+
         set mouse=r
         set showtabline=2	" Show tab bar
 

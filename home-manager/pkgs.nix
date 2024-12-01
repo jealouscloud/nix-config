@@ -37,7 +37,6 @@
     bc # cli calculator
     python3
     jq # parse json
-    argc # for llm-functions
 
     lazygit # fun cli for git, remove if you don't use
 
@@ -63,8 +62,10 @@
     fabric-ai
     libedgetpu
     edgetpu-compiler
+    argc # for llm-functions
       # alacritty
-    # zed-editor
+    zed-editor
+    keymapp
     ]) ++ (with inputs.nix-alien.packages.${system};
     [
       nix-alien

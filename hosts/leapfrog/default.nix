@@ -20,6 +20,7 @@
     ../../common/optional/qemu.nix
     ../../common/optional/bluetooth.nix
     ../../common/optional/docker.nix
+    ../../common/optional/fingerprint.nix
     ../../common/locale.nix
   ];
 }

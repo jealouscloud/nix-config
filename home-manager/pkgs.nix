@@ -51,6 +51,8 @@
     # system troubleshooting
     d-spy
     bustle
+    keymapp
+    thunderbolt # user space, tbtadm
 
 
   ]) ++ (with pkgs-unstable;
@@ -65,7 +67,6 @@
     argc # for llm-functions
       # alacritty
     zed-editor
-    keymapp
     ]) ++ (with inputs.nix-alien.packages.${system};
     [
       nix-alien

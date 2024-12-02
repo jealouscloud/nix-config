@@ -52,11 +52,15 @@
     # system troubleshooting
     d-spy
     bustle
-    keymapp
     thunderbolt # user space, tbtadm
 
+    # keyboard
+
+    keymapp # zsa / voyager layer display
+    screenkey
 
   ]) ++ (with pkgs-unstable;
+  
     [
     logseq
 

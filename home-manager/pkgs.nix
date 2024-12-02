@@ -9,6 +9,7 @@
     nixfmt-classic # nix code formatter
     nixpkgs-fmt
     nil # nix language server
+    nixd
     autokey
 
     devbox

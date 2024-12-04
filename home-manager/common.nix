@@ -156,10 +156,10 @@
     enable = true;
     pinentryPackage = pkgs.pinentry-gtk2;
   };
-
+  services.gnome-keyring.enable = true;
   # Screenshots
   services.flameshot = {
-    enable = true;
+    # enable = true;
     settings = {
       General = {
         disabledTrayIcon = false;
@@ -193,5 +193,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }

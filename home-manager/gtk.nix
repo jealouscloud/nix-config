@@ -4,7 +4,11 @@ pkgs,
 config
 , ...
 }: {
-
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.dracula-icon-theme;
+    name = "Dracula";
+  };
   home.packages = (with pkgs; [
     dracula-theme
     dracula-icon-theme

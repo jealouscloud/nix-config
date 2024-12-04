@@ -11,7 +11,8 @@
     local act = wezterm.action
 
     -- This is where you actually apply your config choices
-
+    -- bugfix: Default renderer broke on nixos 24.11
+    config.front_end = "WebGpu"
     -- Pretty things
     config.color_scheme = 'AdventureTime'
     config.color_scheme = "Dracula (Official)"

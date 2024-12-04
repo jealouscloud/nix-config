@@ -23,4 +23,5 @@
     ../../common/optional/fingerprint.nix
     ../../common/locale.nix
   ];
+  networking.hostName = "leapfrog";
 }

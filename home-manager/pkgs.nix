@@ -11,9 +11,11 @@
     nil # nix language server
     nixd
     autokey
+    flameshot
 
     devbox
     direnv
+    gitnuro # git client
 
     pcmanfm
     lxmenu-data # populate applications
@@ -58,6 +60,9 @@
 
     keymapp # zsa / voyager layer display
     screenkey
+
+    # fonts
+    noto-fonts
 
   ]) ++ (with pkgs-unstable;
   

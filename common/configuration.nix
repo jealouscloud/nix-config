@@ -1,8 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 { inputs, lib, config, pkgs, ... }: {
-  # NOTE: the following are two ways to say the same thing
-  # nixpkgs.config.allowUnfree = true;
   imports = [ inputs.home-manager.nixosModules.home-manager ];
   nixpkgs = {
     # You can add overlays here

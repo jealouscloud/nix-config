@@ -120,7 +120,7 @@
             inherit system;
           };
           # > Our main home-manager configuration file <
-          modules = [ ./home-manager/home.nix ];
+          modules = [ ./hosts/leapfrog/home.nix ];
         };
         "noah@work" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -131,7 +131,7 @@
             inherit system;
           };
           # > Our main home-manager configuration file <
-          modules = [ ./home-manager/work.nix ];
+          modules = [ ./hosts/work/home.nix ];
         };
 
       };

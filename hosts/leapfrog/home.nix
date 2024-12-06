@@ -1,6 +1,12 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, lib, config, pkgs, pkgs-unstable, ... }: {
+{ inputs
+, lib
+, config
+, pkgs
+, ...
+}:
+{
 
   # You can import other home-manager modules here
   imports = [
@@ -9,11 +15,8 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./common.nix
+    ../../home-manager/common.nix
   ];
-
-  home.packages = (with pkgs; [ openvpn  ])
-    ++ (with pkgs-unstable; [ slack ]);
 
   home = {
     username = "noah";
@@ -23,23 +26,21 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-
+  home.packages = 
+    (with pkgs; [
+      swappy
+    ]);
+  # Enable home-manager and git
   programs = {
     git = {
       enable = true;
-      userName = "noaha";
-      userEmail = "noaha@inmotionhosting.com";
-      signing = {
-        key = "0x7A2465CEBF62B908";
-        signByDefault = true;
-      };
+      userName = "jealouscloud";
+      userEmail = "github@noaha.org";
     };
+
     rbw = {
-      enable = true;
       settings = {
-        email = "noaha@inmotionhosting.com";
-        base_url = "https://vault0.imhadmin.net/";
-        lock_timeout = 36000;
+        email = "mail@noaha.org";
       };
     };
   };

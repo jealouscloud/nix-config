@@ -16,6 +16,8 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
 
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
@@ -45,20 +47,9 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
 
       nixosConfigurations = {
-        # FIXME replace with your hostname
-        developer = nixpkgs.lib.nixosSystem {
+        nixos-vm = nixpkgs.lib.nixosSystem {
           # > Our main nixos configuration file <
           modules = [ ./hosts/nixos-vm ];
-          specialArgs = { inherit inputs outputs; };
-        };
-        macbook = nixpkgs.lib.nixosSystem {
-          # > Our main nixos configuration file <
-          modules = [ ./hosts/macbook-vm ];
-          specialArgs = { inherit inputs outputs; };
-        };
-        slider = nixpkgs.lib.nixosSystem {
-          # > Our main nixos configuration file <
-          modules = [ ./hosts/nixos-slider ];
           specialArgs = { inherit inputs outputs; };
         };
         leapfrog = nixpkgs.lib.nixosSystem {
@@ -79,28 +70,6 @@
       homeConfigurations = {
         # FIXME replace with your username@hostname
         "noah@developer" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit outputs;
-            inherit pkgs-unstable;
-            inherit system;
-          };
-          # > Our main home-manager configuration file <
-          modules = [ ./home-manager/home.nix ];
-        };
-        "noah@macbook" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit outputs;
-            inherit pkgs-unstable;
-            inherit system;
-          };
-          # > Our main home-manager configuration file <
-          modules = [ ./home-manager/home.nix ];
-        };
-        "noah@slider" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs;

@@ -153,14 +153,14 @@ install-nixos() {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
 EOF
     )
     echo "$entry_config" > /mnt/etc/nixos/configuration.nix
     nixos-install
     mv /root/nix-config /mnt/etc/nix-config/
-    cp /etc/nixos/hardware-configuration.nix /mnt/etc/nix-config//hardware-configuration.nix
+    cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nix-config//hardware-configuration.nix
 
 }
 # parse command, "partition", "configure"

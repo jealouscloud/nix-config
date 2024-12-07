@@ -69,7 +69,7 @@
       #   # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         # FIXME replace with your username@hostname
-        "noah@developer" = home-manager.lib.homeManagerConfiguration {
+        "noah@nixos-vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs;
@@ -78,7 +78,7 @@
             inherit system;
           };
           # > Our main home-manager configuration file <
-          modules = [ ./home-manager/home.nix ];
+          modules = [ ./hosts/nixos-vm/home.nix ];
         };
         "noah@leapfrog" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

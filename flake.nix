@@ -49,17 +49,17 @@
       nixosConfigurations = {
         nixos-vm = nixpkgs.lib.nixosSystem {
           # > Our main nixos configuration file <
-          modules = [ ./hosts/nixos-vm ];
+          modules = [ ./hosts/nixos-vm/config.nix ];
           specialArgs = { inherit inputs outputs; };
         };
         leapfrog = nixpkgs.lib.nixosSystem {
           # > Our main nixos configuration file <
-          modules = [ ./hosts/leapfrog ];
+          modules = [ ./hosts/leapfrog/config.nix ];
           specialArgs = { inherit inputs outputs; };
         };
         work = nixpkgs.lib.nixosSystem {
           # > Our main nixos configuration file <
-          modules = [ ./hosts/work ];
+          modules = [ ./hosts/work/config.nix ];
           specialArgs = { inherit inputs outputs; };
         };
 

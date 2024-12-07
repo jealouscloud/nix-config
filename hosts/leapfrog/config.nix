@@ -14,6 +14,8 @@
     ../../common/configuration.nix
     ../../common/boot-uefi.nix
     ../../common/optional/desktop/xfce.nix
+    # ../../common/optional/desktop/plasma.nix
+    #../../common/optional/desktop/hyprland.nix
     ../../common/optional/pipewire.nix
     ../../common/optional/flatpak.nix
     ../../common/optional/fwupd.nix

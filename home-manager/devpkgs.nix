@@ -1,9 +1,11 @@
 { pkgs, pkgs-unstable, inputs, system, ... }: {
   home.packages = (with pkgs; [
+    # Language server things
     nixfmt-classic # nix code formatter
     nixpkgs-fmt
     nil # nix language server
     nixd
+    shellcheck
   
     devbox
     direnv

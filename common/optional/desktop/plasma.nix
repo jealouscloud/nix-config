@@ -13,4 +13,9 @@
     variant = "";
     layout = "us";
   };
+  # NOTE:
+  # MY DISPLAYS DO A DUMB THING, 2k @ 120hz x 2 WHICH DOES NOT WORK
+  # LOG IN UN DOCKED, SET SETTINGS, THEN COPY TO SDDM
+  # sudo cp ~/.config/kwinoutputconfig.json /var/lib/sddm/.config/
+  # chown sddm:sddm /var/lib/sddm/.config/kwinoutputconfig.json
 }

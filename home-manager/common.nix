@@ -16,6 +16,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./pkgs.nix
+    ./devpkgs.nix
     ./gtk.nix
     ./xfce.nix
     ./rofi.nix

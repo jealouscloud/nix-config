@@ -6,15 +6,9 @@
     pavucontrol
     mission-center # task manager
     copyq
-    nixfmt-classic # nix code formatter
-    nixpkgs-fmt
-    nil # nix language server
-    nixd
     autokey
     flameshot
 
-    devbox
-    direnv
     gitnuro # git client
 
     pcmanfm
@@ -34,14 +28,8 @@
     cifs-utils # for cifs mounts/samba
     xdg-desktop-portal-gtk # flatpak
 
-    rye # python dev tool
-    uv # python pip replacement
-
     bc # cli calculator
-    python3
     jq # parse json
-
-    lazygit # fun cli for git, remove if you don't use
 
     # fonts
     monaspace
@@ -68,15 +56,7 @@
   
     [
     logseq
-
-    # ai tools
-    aichat
-    fabric-ai
-    libedgetpu
-    edgetpu-compiler
-    argc # for llm-functions
-      # alacritty
-    zed-editor
+    # zed-editor
     ]) ++ (with inputs.nix-alien.packages.${system};
     [
       nix-alien

@@ -21,9 +21,6 @@
       allowUnfree = true;
     };
   };
-  qt.enable = true;
-  qt.platformTheme = "gtk2";
-  qt.style = "gtk2";
 
   console.enable = true; # We definitely want to switch TTYs
   # Enable all sysrq functions (useful to recover from some issues):

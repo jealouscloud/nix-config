@@ -8,11 +8,6 @@ pkgs
     # https://github.com/JRMurr/NixOsConfig/blob/main/common/homemanager/rofi.nix
     # https://github.com/nmasur/dotfiles/blob/master/modules/nixos/graphical/rofi.nix
 
-
-    programs.rofi = {
-        enable = true;
-        theme = "~/.local/share/rofi/dracula/config1.rasi";
-    };
     home.file.".local/share/rofi" = {
         recursive = true;
         source = ./files/rofi;

@@ -12,7 +12,11 @@
     ../../home-manager/common.nix
   ];
 
-  home.packages = (with pkgs; [ openvpn  ])
+  home.packages = (with pkgs; [ 
+    openvpn
+    rofi
+    rofi-rbw
+    ])
     ++ (with pkgs-unstable; [ slack ]);
 
   home = {
@@ -34,6 +38,7 @@
         signByDefault = true;
       };
     };
+
     rbw = {
       enable = true;
       settings = {
@@ -41,6 +46,12 @@
         base_url = "https://vault0.imhadmin.net/";
         lock_timeout = 36000;
       };
+    };
+
+
+    rofi = {
+        enable = true;
+        theme = "~/.local/share/rofi/dracula/config1.rasi";
     };
   };
 }

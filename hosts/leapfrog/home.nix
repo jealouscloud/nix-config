@@ -30,6 +30,8 @@
   home.packages = 
     (with pkgs; [
       swappy
+      rofi-wayland
+      rofi-rbw-wayland
     ]);
   # Enable home-manager and git
   programs = {
@@ -43,6 +45,14 @@
       settings = {
         email = "mail@noaha.org";
       };
+      package = pkgs.rofi-rbw-wayland;
+    };
+
+
+    rofi = {
+        enable = true;
+        package = pkgs.rofi-wayland;
+        theme = "~/.local/share/rofi/dracula/config1.rasi";
     };
   };
 }

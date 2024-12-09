@@ -17,9 +17,7 @@
     arandr
     spotify
 
-    # bitwarden via rofi
     pinentry-gtk2
-    rofi-rbw
     xdotool
 
     ptyxis

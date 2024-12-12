@@ -13,7 +13,8 @@
     ./hardware-configuration.nix
     ../../common/configuration.nix
     ../../common/boot-uefi.nix
-    ../../common/optional/desktop/xfce.nix
+    # ../../common/optional/desktop/xfce.nix
+    ../../common/optional/desktop/plasma.nix
     ../../common/optional/pipewire.nix
     ../../common/optional/yubikey.nix
     ../../common/optional/flatpak.nix

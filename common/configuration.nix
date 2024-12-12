@@ -51,6 +51,7 @@
     git
     appimage-run
     nix-index-unwrapped
+    nix-search-cli
     home-manager
     touchegg
   ];

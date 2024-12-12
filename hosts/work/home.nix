@@ -10,6 +10,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ../../home-manager/common.nix
+    ../../home-manager/kde.nix
   ];
 
   home.packages = (with pkgs; [ 

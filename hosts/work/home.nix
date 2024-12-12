@@ -15,8 +15,8 @@
 
   home.packages = (with pkgs; [ 
     openvpn
-    rofi
-    rofi-rbw
+    rofi-wayland
+    rofi-rbw-wayland
     ])
     ++ (with pkgs-unstable; [ slack ]);
 
@@ -47,11 +47,14 @@
         base_url = "https://vault0.imhadmin.net/";
         lock_timeout = 36000;
       };
+
+      package = pkgs.rofi-rbw-wayland;
     };
 
 
     rofi = {
         enable = true;
+        package = pkgs.rofi-wayland;
         theme = "~/.local/share/rofi/dracula/config1.rasi";
     };
   };

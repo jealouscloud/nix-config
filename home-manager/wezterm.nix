@@ -122,6 +122,8 @@
 
 
     config.enable_scroll_bar = true
+    -- no ligatures
+    config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' } 
 
     -- Disable mailto by specifying rules myself
     config.hyperlink_rules = {

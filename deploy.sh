@@ -1,6 +1,6 @@
 #!/bin/sh
-hostname=work
-user=noah
+hostname=$(hostname)
+user=$(whoami)
 
 if [[ $1 == "system" ]] || [[ -z "$1" ]]; then
     sudo nixos-rebuild switch --flake .#${hostname}

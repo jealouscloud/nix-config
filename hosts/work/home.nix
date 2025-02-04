@@ -17,6 +17,12 @@
     openvpn
     rofi-wayland
     rofi-rbw-wayland
+    dig
+    ipcalc
+    file
+    lite-xl
+    obs-studio
+    vlc
     ])
     ++ (with pkgs-unstable; [ slack ]);
 

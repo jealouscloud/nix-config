@@ -127,7 +127,12 @@
       ];
       extraGroups = [ "networkmanager" "audio" "docker" "wheel" "libvirtd" ];
       packages = [ inputs.home-manager.packages.${pkgs.system}.default ];
+      uid = 1000;
     };
+  };
+
+  users.groups.noah = {
+    gid = 1000;
   };
 
   # This setups a SSH server. Very important if you're setting up a headless system.

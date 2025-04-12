@@ -23,8 +23,12 @@
     lite-xl
     obs-studio
     vlc
+    zeal
     ])
-    ++ (with pkgs-unstable; [ slack ]);
+    ++ (with pkgs-unstable; [ 
+      slack
+      adoptopenjdk-icedtea-web 
+      ]);
 
   home = {
     username = "noah";

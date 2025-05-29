@@ -29,7 +29,7 @@
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
-      # Or define it inline, for example:
+      # Or define it inline, for example:t
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
       #     patches = [ ./change-hello-to-hi.patch ];
@@ -63,14 +63,17 @@
     # Enable vscode
     vscode = {
       enable = true;
-      extensions = [
-        # pkgs.vscode-extensions.ms-python.black-formatter
-        pkgs.vscode-extensions.bbenoist.nix
-        pkgs.vscode-extensions.redhat.vscode-yaml
-        pkgs.vscode-extensions.ms-python.vscode-pylance
-        pkgs.vscode-extensions.ms-python.python
-        pkgs.vscode-extensions.ms-python.isort
-      ];
+      profiles = {
+        default = {
+          extensions = with pkgs.vscode-extensions; [
+            bbenoist.nix
+            redhat.vscode-yaml
+            ms-python.vscode-pylance
+            ms-python.python
+            ms-python.isort
+          ];
+        };
+      };
     };
     # Bash etc
     bash = {
@@ -155,7 +158,7 @@
   };
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-gtk2;
+    pinentry.package = pkgs.pinentry-gtk2;
   };
   services.gnome-keyring.enable = true;
   # Screenshots

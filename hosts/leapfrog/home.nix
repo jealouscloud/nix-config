@@ -17,6 +17,7 @@
     # ./nvim.nix
     ../../home-manager/common.nix
     ../../home-manager/kde.nix
+    ../../home-manager/fabric-shell.nix
   ];
 
   home = {

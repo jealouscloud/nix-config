@@ -21,7 +21,11 @@
     ../../common/optional/bluetooth.nix
     ../../common/optional/docker.nix
     ../../common/optional/fingerprint.nix
+    ../../common/optional/utils.nix
     ../../common/locale.nix
   ];
   networking.hostName = "leapfrog";
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "25.05";
 }

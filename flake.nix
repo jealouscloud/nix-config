@@ -16,6 +16,11 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
 
 
+    fabric-shell = {
+      url = "github:Fabric-Development/fabric";  # or wherever it's hosted
+      flake = true;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hyprland.url = "github:hyprwm/Hyprland";
 
     # Shameless plug: looking for a way to nixify your themes and make

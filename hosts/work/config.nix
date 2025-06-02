@@ -26,4 +26,11 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
+  networking.extraHosts = ''
+    127.0.0.1 wazuh.manager
+  '';
+    environment.systemPackages = with pkgs; [
+    # Add your system packages here.
+    qemu
+  ];
 }

@@ -80,9 +80,7 @@
       enable = true;
       # Add custom shell aliases
       shellAliases = {
-        ll = "ls -l";
         rm = "rm -I";
-        ls = "ls --color=auto";
       };
       historySize = 50000;
       historyFileSize = 100000;

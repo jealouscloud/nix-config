@@ -52,7 +52,6 @@
   ]) ++ (with pkgs-unstable;
   
     [
-      spotify
     # logseq
     # zed-editor
     ]) ++ (with inputs.nix-alien.packages.${system};

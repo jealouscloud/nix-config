@@ -161,7 +161,7 @@
   services.gnome-keyring.enable = true;
   # Screenshots
   services.flameshot = {
-    # enable = true;
+    enable = true;
     settings = {
       General = {
         disabledTrayIcon = false;

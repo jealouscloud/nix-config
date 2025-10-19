@@ -41,7 +41,10 @@
     name = "nix/path/${name}";
     value.source = value.flake;
   }) config.nix.registry;
-  environment.variables = { EDITOR = "vim"; VISUAL = "vim"; };
+  environment.variables = {
+    EDITOR = "vim";
+    VISUAL = "vim";
+  };
   environment.systemPackages = with pkgs; [
     # Add your system packages here.
     vim

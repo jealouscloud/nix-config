@@ -14,6 +14,7 @@
 
 
     nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-alien.inputs.nixpkgs.follows = "nixpkgs";
 
     # hyprland.url = "github:hyprwm/Hyprland";
 

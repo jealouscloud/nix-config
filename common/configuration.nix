@@ -24,7 +24,7 @@
 
   console.enable = true; # We definitely want to switch TTYs
   # Enable all sysrq functions (useful to recover from some issues):
-  boot.kernel.sysctl = { 
+  boot.kernel.sysctl = {
     "kernel.sysrq" = 1; # NixOS default: 16 (only the sync command)
   };
   # Documentation: https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html
@@ -72,31 +72,29 @@
 
   # ref: https://github.com/Mic92/dotfiles/blob/a392bb0762393b20d0ae7df25b063fcf0b512203/machines/modules/fhs-compat.nix
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries =
-    with pkgs;
-    [
-      acl
-      attr
-      bzip2
-      dbus
-      expat
-      fontconfig
-      freetype
-      fuse3
-      icu
-      libnotify
-      libsodium
-      libssh
-      libunwind
-      libusb1
-      libuuid
-      nspr
-      nss
-      stdenv.cc.cc
-      util-linux
-      zlib
-      zstd
-    ];
+  programs.nix-ld.libraries = with pkgs; [
+    acl
+    attr
+    bzip2
+    dbus
+    expat
+    fontconfig
+    freetype
+    fuse3
+    icu
+    libnotify
+    libsodium
+    libssh
+    libunwind
+    libusb1
+    libuuid
+    nspr
+    nss
+    stdenv.cc.cc
+    util-linux
+    zlib
+    zstd
+  ];
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
@@ -140,9 +138,7 @@
     KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
   '';
 
-  users.groups.noah = {
-    gid = 1000;
-  };
+  users.groups.noah = { gid = 1000; };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -166,8 +162,6 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
-
-
 
   # add ~/.local/bin to path
   environment.localBinInPath = true;

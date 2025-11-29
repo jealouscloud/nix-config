@@ -1,12 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, lib
-, config
-, pkgs
-, ...
-}:
-{
+{ inputs, lib, config, pkgs, pkgs-unstable, ... }: {
 
   # You can import other home-manager modules here
   imports = [
@@ -57,9 +51,7 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs = {
-    git = {
-      enable = true;
-    };
+    git = { enable = true; };
     # Enable vscode
     vscode = {
       enable = true;
@@ -79,9 +71,7 @@
     bash = {
       enable = true;
       # Add custom shell aliases
-      shellAliases = {
-        rm = "rm -I";
-      };
+      shellAliases = { rm = "rm -I"; };
       historySize = 50000;
       historyFileSize = 100000;
       initExtra = ''
@@ -89,7 +79,6 @@
         echo "Failure is not starting from zero, but starting from a checkpoint."
       '';
     };
-
 
     vim = {
       enable = true;
@@ -109,12 +98,12 @@
         "set number	" Show line numbers
         set showmatch	" Highlight matching brace
         set visualbell	" Use visual bell (no beeping)
-        
+
         set hlsearch	" Highlight all search results
         set smartcase	" Enable smart-case search
         set ignorecase	" Always case-insensitive
         set incsearch	" Searches for strings incrementally
-        
+
         set autoindent	" Auto-indent new lines
         set cindent	" Use 'C' style program indenting
         set smartindent	" Enable smart-indent
@@ -122,37 +111,26 @@
       '';
     };
 
-    fzf = {
+    fzf = { 
       enable = true;
-    };
+      fileWidgetCommand = "find . -type f | head -100000";
+     };
 
-    bat = {
-      enable = true;
-    };
+    bat = { enable = true; };
 
-    lsd = {
-      enable = true;
-    };
+    lsd = { enable = true; };
 
-    ripgrep = {
-      enable = true;
-    };
+    ripgrep = { enable = true; };
 
-    gpg = {
-      enable = true;
-    };
+    gpg = { enable = true; };
 
     # bitwarden cli
     rbw = {
       enable = true;
-      settings = {
-        pinentry = pkgs.pinentry-gtk2;
-      };
+      settings = { pinentry = pkgs.pinentry-gtk2; };
     };
 
-    chromium = {
-      enable = true;
-    };
+    chromium = { enable = true; };
   };
   services.gpg-agent = {
     enable = true;

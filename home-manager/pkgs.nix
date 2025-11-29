@@ -48,6 +48,8 @@
 
     # fonts
     noto-fonts
+    
+    zed-editor
 
   ]) ++ (with pkgs-unstable;
   

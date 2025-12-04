@@ -30,15 +30,19 @@
   home.packages = 
     (with pkgs; [
       swappy
-      rofi-wayland
+      rofi
       rofi-rbw-wayland
     ]);
   # Enable home-manager and git
   programs = {
     git = {
       enable = true;
-      userName = "jealouscloud";
-      userEmail = "github@noaha.org";
+      settings = {
+        user = {
+          name = "jealouscloud";
+          email = "github@noaha.org";   
+        };
+      };
     };
 
     rbw = {
@@ -51,11 +55,10 @@
 
     rofi = {
         enable = true;
-        package = pkgs.rofi-wayland;
         theme = "~/.local/share/rofi/dracula/config1.rasi";
     };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

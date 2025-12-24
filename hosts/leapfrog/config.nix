@@ -22,6 +22,7 @@
     ../../common/optional/docker.nix
     ../../common/optional/fingerprint.nix
     ../../common/optional/utils.nix
+    ../../common/optional/memory-safety.nix
     ../../common/locale.nix
   ];
   networking.hostName = "leapfrog";

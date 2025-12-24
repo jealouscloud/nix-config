@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+
+  zramSwap.enable = true;
   services.earlyoom = {
       enable = true;
       freeSwapThreshold = 2;

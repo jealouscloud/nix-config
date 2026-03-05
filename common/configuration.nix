@@ -47,6 +47,7 @@
   };
   environment.systemPackages = with pkgs; [
     # Add your system packages here.
+    cacert
     vim
     wget
     inetutils # for telnet

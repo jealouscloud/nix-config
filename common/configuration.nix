@@ -58,6 +58,7 @@
     nix-search-cli
     home-manager
     touchegg
+    cacert
   ];
   services.touchegg.enable = true;
   nix.settings = {

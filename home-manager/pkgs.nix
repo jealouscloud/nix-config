@@ -1,7 +1,6 @@
 { pkgs, pkgs-unstable, inputs, system, ... }: {
   home.packages = (with pkgs; [
     playerctl
-    firefox
     thunderbird
     pavucontrol
     mission-center # task manager
@@ -54,6 +53,7 @@
   ]) ++ (with pkgs-unstable;
   
     [
+    firefox
     # logseq
     # zed-editor
     ]) ++ (with inputs.nix-alien.packages.${system};

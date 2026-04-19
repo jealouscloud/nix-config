@@ -67,6 +67,9 @@
     # Deduplicate and optimize nix store
     auto-optimise-store = true;
   };
+  security.loginDefs.settings = {
+    LOGIN_TIMEOUT = 900; # 15 minutes, helps me recover from oom situations
+  };
   programs.tmux = {
     enable = true;
     plugins = [ pkgs.tmuxPlugins.dracula ];

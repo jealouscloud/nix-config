@@ -20,12 +20,18 @@
     ../../common/optional/flatpak.nix
     ../../common/optional/bluetooth.nix
     ../../common/optional/docker.nix
+    ../../common/optional/memory-safety.nix
     ../../common/locale.nix
   ];
   networking.hostName = "work";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
+
+  networking.networkmanager.plugins =  (with pkgs; [
+    networkmanager-openvpn
+  ]);
+
   networking.extraHosts = ''
     127.0.0.1 wazuh.manager
   '';
@@ -33,4 +39,5 @@
     # Add your system packages here.
     qemu
   ];
+  services.pcscd.enable = true;
 }

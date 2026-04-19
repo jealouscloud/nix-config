@@ -13,9 +13,9 @@
     ../../home-manager/kde.nix
   ];
 
-  home.packages = (with pkgs; [ 
+  home.packages = (with pkgs; [
     openvpn
-    rofi-wayland
+    rofi
     rofi-rbw-wayland
     dig
     ipcalc
@@ -38,15 +38,20 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-
+  
   programs = {
     git = {
       enable = true;
-      userName = "noaha";
-      userEmail = "noaha@inmotionhosting.com";
       signing = {
         key = "0x7A2465CEBF62B908";
         signByDefault = true;
+      };
+
+      settings = {
+        user = {
+          name = "noaha";
+          email = "noaha@inmotionhosting.com";   
+        };
       };
     };
 
@@ -64,11 +69,17 @@
 
     rofi = {
         enable = true;
-        package = pkgs.rofi-wayland;
         theme = "~/.local/share/rofi/dracula/config1.rasi";
     };
   };
+    home.file = {
+      libykcs = {
+        source = "${pkgs.yubico-piv-tool}/lib/libykcs11.so";
+        target = ".ssh/libykcs11.so";
+        executable = true;
+      };
+    };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

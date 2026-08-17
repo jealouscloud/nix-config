@@ -2,11 +2,11 @@
   description = "Your new nix config";
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: Add any other flake you might need
@@ -31,7 +31,7 @@
         system = "${system}";
         config = {
           allowUnfree = true;
-          permittedInsecurePackages = [ "electron-27.3.11" ];
+          permittedInsecurePackages = [ "electron-27.3.11"  ];
         };
       };
 

@@ -17,9 +17,6 @@ in {
 
     lazygit # fun cli for git, remove if you don't use
 
-    rye # python dev tool
-    uv # python pip replacement
-
     bc # cli calculator
     python3
   ]) ++ (with pkgs-unstable; [
